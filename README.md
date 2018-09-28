@@ -7,18 +7,6 @@ Demos
 http://www.phyloxml.org/demo/msaviewer_new.html
 
 
-####  Features
-* runs purely in the Browser
-* import files in format like FASTA, Clustal, ...
-* be interactive and receive [Events](https://github.com/wilzbach/msa/wiki/Events)
-* filter, sort, hide the sequences
-* display sequence [features](https://github.com/wilzbach/biojs-vis-easy_features/)
-* extendable [Views](https://github.com/wilzbach/msa/wiki/Views) for your integration
-* customizable viewport
-* simplicity as design rule
-* export to fASTAb
-* generate the consenus seq
-* more to come ...
 
 ## Use the MSAViewer
 
