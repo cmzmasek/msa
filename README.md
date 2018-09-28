@@ -6,18 +6,6 @@ Demos
 
 http://www.phyloxml.org/demo/msaviewer_new.html
 
-These examples show how you could embed the MSAViewer into your page.
-
-[![JSBin clustal](http://img.shields.io/badge/jsbin-clustal-blue.svg)](http://jsbin.com/quvex/4/edit?js,output)
-[![JSBin large](http://img.shields.io/badge/jsbin-large-blue.svg)](http://jsbin.com/zunuko/4/edit?html,js,output)
-
-
-[Current sniper](http://workmen.biojs.net/demo/msa) with different examples
-
-#### display an MSA
-
-![basic MSA](https://i.imgur.com/nQtfMmI.png)
-
 
 ####  Features
 * runs purely in the Browser
