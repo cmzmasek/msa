@@ -30,31 +30,6 @@ const ExtraMenu = MenuBuilder.extend({
       return this.model.sort();
     });
 
-    // @addNode "Calc Tree", ->
-    //   # this is a very experimental feature
-    //   # TODO: exclude msa & tnt in the adapter package
-    //   newickStr = ""
-    //
-    //   cbs = Loader.joinCb ->
-    //     msa.u.tree.showTree nwkData
-    //   , 2, @
-    //
-    //   msa.u.tree.loadTree cbs
-    //   # load fake tree
-    //   nwkData =
-    //     name: "root",
-    //     children: [
-    //       name: "c1",
-    //       branch_length: 4
-    //       children: msa.seqs.filter (f,i) ->  i % 2 is 0
-    //     ,
-    //       name: "c2",
-    //       children: msa.seqs.filter (f,i) ->  i % 2 is 1
-    //       branch_length: 4
-    //     ]
-    //   msa.seqs.each (s) ->
-    //     s.set "branch_length", 2
-    //   cbs()
 
     this.addNode("Jump to a column", () => {
       var offset = prompt("Column", "20");

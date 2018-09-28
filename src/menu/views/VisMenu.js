@@ -23,8 +23,8 @@ const VisMenu = MenuBuilder.extend({
     this.addNode("Reset", () => {
       this.g.vis.set("labels", true);
       this.g.vis.set("sequences", true);
-      this.g.vis.set("metacell", true);
-      this.g.vis.set("conserv", true);
+      this.g.vis.set("metacell", false); // Changed to false (CZ 2018/09/28)
+      this.g.vis.set("conserv", false); // Changed to false (CZ 2018/09/28)
       this.g.vis.set("labelId", false); // Changed to false (CZ 2018/09/26)
       this.g.vis.set("labelName", true); 
       this.g.vis.set("labelCheckbox", false);
@@ -70,7 +70,7 @@ const VisMenu = MenuBuilder.extend({
     vis.push({name: "sequence logo", id: "seqlogo"});
     vis.push({name: "gap weights", id: "gapHeader"});
     vis.push({name: "conservation weights", id: "conserv"});
-    vis.push({name: "scale slider", id: "scaleslider"});
+    // vis.push({name: "scale slider", id: "scaleslider"});  // Commented out (CZ 2018/09/28)
     vis.push({name: "Label", id: "labelName"});
     // vis.push({name: "ID", id: "labelId"}); // Commented out (CZ 2018/09/26)
     vis.push({name: "gaps %", id: "metaGaps"});

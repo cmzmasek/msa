@@ -4,6 +4,8 @@ const dom = require("dom-helper");
 const arrowUp = "\u2191";
 const arrowDown = "\u2193";
 
+// Reorganized order of menu items (CZ 2018/09/28)
+
 const OrderingMenu = MenuBuilder.extend({
 
   initialize: function(data) {
@@ -64,21 +66,9 @@ const OrderingMenu = MenuBuilder.extend({
     //     return - ("" + a.get("id")).localeCompare("" + b.get("id"), [], {numeric: true} );
     // }});
 
-    models.push({text: "Label " + arrowUp, comparator: "name"});
-
-    models.push({text: "Label " + arrowDown, comparator: function(a, b) {
-        return - a.get("name").localeCompare(b.get("name"));
-    }});
-
-    models.push({text: "Seq " + arrowUp, comparator: "seq"});
-
-    models.push({text: "Seq " + arrowDown, comparator: function(a,b) {
-        return - a.get("seq").localeCompare(b.get("seq"));
-    }});
-
-    var setIdent = () => {
-      return this.ident = this.g.stats.identity();
-    };
+    // var setIdent = () => {
+    //  return this.ident = this.g.stats.identity();
+    // };
 
     var setGaps = () => {
       this.gaps = {};
@@ -126,6 +116,18 @@ const OrderingMenu = MenuBuilder.extend({
       return 0;
     }
     ), precode: setGaps});
+    
+    models.push({text: "Label " + arrowUp, comparator: "name"});
+
+    models.push({text: "Label " + arrowDown, comparator: function(a, b) {
+        return - a.get("name").localeCompare(b.get("name"));
+    }});
+
+    models.push({text: "Seq " + arrowUp, comparator: "seq"});
+
+    models.push({text: "Seq " + arrowDown, comparator: function(a,b) {
+        return - a.get("seq").localeCompare(b.get("seq"));
+    }});
 
     models.push({text: "Consensus to top", comparator(seq) {
         return !seq.get("ref");
