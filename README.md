@@ -1,21 +1,7 @@
 MSAViewer
 ==========
 
-Multiple Sequence Alignment Viewer - the MSAViewer - a BioJS component.
 
-```
-          .         .
-         ,8.       ,8.            d888888o.           .8.
-        ,888.     ,888.         .`8888:' `88.        .888.
-       .`8888.   .`8888.        8.`8888.   Y8       :88888.
-      ,8.`8888. ,8.`8888.       `8.`8888.          . `88888.
-     ,8'8.`8888,8^8.`8888.       `8.`8888.        .8. `88888.
-    ,8' `8.`8888' `8.`8888.       `8.`8888.      .8`8. `88888.
-   ,8'   `8.`88'   `8.`8888.       `8.`8888.    .8' `8. `88888.
-  ,8'     `8.`'     `8.`8888.  8b   `8.`8888.  .8'   `8. `88888.
- ,8'       `8        `8.`8888. `8b.  ;8.`8888 .888888888. `88888.
-,8'         `         `8.`8888. `Y8888P ,88P'.8'       `8. `88888.
-```
 
 [![Build Status](https://travis-ci.org/wilzbach/msa.svg?branch=master)](https://travis-ci.org/wilzbach/msa)
 [![NPM version](http://img.shields.io/npm/v/msa.svg)](https://www.npmjs.org/package/msa)
@@ -36,13 +22,11 @@ Yes you can either link to the minified, gzipped CDN version or download the dev
 
 [![NPM](https://nodei.co/npm/msa.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/msa/)
 
-Use it
-------
 
-[Full screen](http://msa.biojs.net/app) mode.
-
-Demo
+Demos
 -----
+
+http://www.phyloxml.org/demo/msaviewer_new.html
 
 These examples show how you could embed the MSAViewer into your page.
 
