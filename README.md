@@ -1,27 +1,5 @@
-MSAViewer
-==========
-
-
-
-[![Build Status](https://travis-ci.org/wilzbach/msa.svg?branch=master)](https://travis-ci.org/wilzbach/msa)
-[![NPM version](http://img.shields.io/npm/v/msa.svg)](https://www.npmjs.org/package/msa)
-[![Join the chat at https://gitter.im/wilzbach/msa](https://badges.gitter.im/wilzbach/msa.svg)](https://gitter.im/wilzbach/msa?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Dependencies](https://david-dm.org/wilzbach/msa.png)](https://david-dm.org/wilzbach/msa)
-[![Code Climate](https://codeclimate.com/github/wilzbach/msa/badges/gpa.svg)](https://codeclimate.com/github/wilzbach/msa)
-[![NPM downloads](http://img.shields.io/npm/dm/msa.svg)](https://www.npmjs.org/package/msa)
-
-
-```html
-<script src=//cdn.bio.sh/msa/1.0/msa.min.gz.js></script>
-```
-
-Yes you can either link to the minified, gzipped CDN version or download the dev version from S3 .
-
-[![Min version](http://img.shields.io/badge/prod-35kB-blue.svg)](https://cdn.bio.sh/msa/latest/msa.min.gz.js)
-[![Dev version](http://img.shields.io/badge/dev-latest-yellow.svg)](https://cdn.bio.sh/msa/latest/msa.js)
-
-[![NPM](https://nodei.co/npm/msa.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/msa/)
-
+Modified MSAViewer
+==================
 
 Demos
 -----
