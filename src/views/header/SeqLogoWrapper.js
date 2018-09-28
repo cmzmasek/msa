@@ -33,7 +33,7 @@ const SeqLogoWrapper = view.extend({
   draw: function() {
     dom.removeAllChilds(this.el);
 
-    console.log("redraw seqlogo");
+    // console.log("redraw seqlogo");
     var arr = this.g.stats.conservResidue({scaled: true});
     arr = _.map(arr, function(el) {
       return _.pick(el, function(e,k) {

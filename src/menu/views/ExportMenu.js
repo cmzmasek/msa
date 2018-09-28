@@ -18,11 +18,12 @@ const ExportMenu = MenuBuilder.extend({
   render: function() {
     this.setName("Export");
 
-    this.addNode("Share view (URL)" + ShareSym, () => {
-      return Exporter.shareLink(this.msa, function(link) {
-        return window.open(link, '_blank');
-      });
-    });
+    // Commented out (CZ 2018/09/26):
+    // this.addNode("Share view (URL)" + ShareSym, () => {
+    //   return Exporter.shareLink(this.msa, function(link) {
+    //     return window.open(link, '_blank');
+    //   });
+    // });
 
     this.addNode("View in Jalview", () => {
       var url = this.g.config.get('url');

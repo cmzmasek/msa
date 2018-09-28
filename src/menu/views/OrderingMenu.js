@@ -1,4 +1,5 @@
 import MenuBuilder from "../menubuilder";
+import {reduce} from "lodash";  // Added (CZ 2018/09/26)
 const dom = require("dom-helper");
 const arrowUp = "\u2191";
 const arrowDown = "\u2193";
@@ -54,13 +55,14 @@ const OrderingMenu = MenuBuilder.extend({
 
   getComparators: function() {
     var models = [];
-
-    models.push({text: "ID " + arrowUp, comparator: "id"});
-
-    models.push({text: "ID " + arrowDown, comparator: function(a, b) {
+    
+    // Commented out (CZ 2018/09/26): No need to sort by ID:
+    // models.push({text: "ID " + arrowUp, comparator: "id"});
+    //
+    // models.push({text: "ID " + arrowDown, comparator: function(a, b) {
       // auto converts to string for localeCompare
-        return - ("" + a.get("id")).localeCompare("" + b.get("id"), [], {numeric: true} );
-    }});
+    //     return - ("" + a.get("id")).localeCompare("" + b.get("id"), [], {numeric: true} );
+    // }});
 
     models.push({text: "Label " + arrowUp, comparator: "name"});
 
@@ -82,26 +84,32 @@ const OrderingMenu = MenuBuilder.extend({
       this.gaps = {};
       return this.model.each((el) => {
         var seq = el.attributes.seq;
-        return this.gaps[el.id] = (seq.reduce(function(memo, c) { return c === '-' ? ++memo: undefined; }),0)/ seq.length;
+        return this.gaps[el.id] = reduce(seq, function(memo, c) { return c === '-' ? ++memo: memo; }, 0) / seq.length;
+        
+        // Bug (?) fixed (CZ 2018/09/26):
+        // Original:
+        // return this.gaps[el.id] = (seq.reduce(function(memo, c) { return c === '-' ? ++memo: undefined; }),0)/
+        // seq.length;
+        
       });
     };
 
-    models.push({text: "Identity " + arrowUp,comparator: ((a,b) => {
-      var val = this.ident[a.id] - this.ident[b.id];
-      console.log(this.ident[a.id],this.ident[b.id]);
-      if (val > 0) { return 1; }
-      if (val < 0) { return -1; }
-      return 0;
-    }
-    ), precode: setIdent});
-
-    models.push({text: "Identity " + arrowDown, comparator: ((a,b) => {
-      var val = this.ident[a.id] - this.ident[b.id];
-      if (val > 0) { return -1; }
-      if (val < 0) { return 1; }
-      return 0;
-    }
-    ), precode: setIdent});
+    // Commented out (CZ 2018/09/26):    
+    // models.push({text: "Identity " + arrowUp,comparator: ((a,b) => {
+    //   var val = this.ident[a.id] - this.ident[b.id];
+    //   if (val > 0) { return 1; }
+    //   if (val < 0) { return -1; }
+    //   return 0;
+    // }
+    // ), precode: setIdent});
+    //
+    // models.push({text: "Identity " + arrowDown, comparator: ((a,b) => {
+    //   var val = this.ident[a.id] - this.ident[b.id];
+    //   if (val > 0) { return -1; }
+    //   if (val < 0) { return 1; }
+    //   return 0;
+    // }
+    // ), precode: setIdent});
 
     models.push({text: "Gaps " + arrowUp, comparator: ((a,b) => {
       var val = this.gaps[a.id] - this.gaps[b.id];

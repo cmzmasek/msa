@@ -25,15 +25,15 @@ const VisMenu = MenuBuilder.extend({
       this.g.vis.set("sequences", true);
       this.g.vis.set("metacell", true);
       this.g.vis.set("conserv", true);
-      this.g.vis.set("labelId", true);
-      this.g.vis.set("labelName", true);
+      this.g.vis.set("labelId", false); // Changed to false (CZ 2018/09/26)
+      this.g.vis.set("labelName", true); 
       this.g.vis.set("labelCheckbox", false);
       this.g.vis.set("seqlogo", false);
       this.g.vis.set("gapHeader", false);
       this.g.vis.set("leftHeader", true);
       this.g.vis.set("metaGaps", true);
-      this.g.vis.set("metaIdentity", true);
-      return this.g.vis.set("metaLinks", true);
+      this.g.vis.set("metaIdentity", false); // Changed to false (CZ 2018/09/26)
+      return this.g.vis.set("metaLinks", false); // Changed to false (CZ 2018/09/26)
     });
 
     // TODO: make more efficient
@@ -65,20 +65,16 @@ const VisMenu = MenuBuilder.extend({
     var vis = [];
     vis.push({name: "residues indices", id: "markers"});
     vis.push({name: "ID/Label", id: "labels"});
-    //vis.push name: "Sequences", id: "sequences"
     vis.push({name: "meta info (Gaps/Ident)", id: "metacell"});
     vis.push({name: "overview panel", id: "overviewbox"});
     vis.push({name: "sequence logo", id: "seqlogo"});
     vis.push({name: "gap weights", id: "gapHeader"});
     vis.push({name: "conservation weights", id: "conserv"});
     vis.push({name: "scale slider", id: "scaleslider"});
-    //vis.push name: "Left header", id: "leftHeader"
     vis.push({name: "Label", id: "labelName"});
-    vis.push({name: "ID", id: "labelId"});
-    //vis.push name: "Label checkbox", id: "labelCheckbox"
+    // vis.push({name: "ID", id: "labelId"}); // Commented out (CZ 2018/09/26)
     vis.push({name: "gaps %", id: "metaGaps"});
     vis.push({name: "identity score", id: "metaIdentity"});
-    // vis.push name: "Meta links", id: "metaLinks"
     return vis;
   }
 });

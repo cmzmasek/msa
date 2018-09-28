@@ -11,7 +11,7 @@ const DebugMenu = MenuBuilder.extend({
     this.setName("Debug");
 
     this.addNode("Get the code", () => {
-      return window.open("https://github.com/wilzbach/msa");
+      return window.open("https://github.com/cmzmasek/msa"); // CZ 2018/09/26
     });
 
     this.addNode("Toggle mouseover events", () => {

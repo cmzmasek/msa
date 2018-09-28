@@ -36,10 +36,16 @@ const MetaView = view.extend({
     if (this.g.vis.get("metaGaps")) {
       // adds gaps
       var seq = this.model.get('seq');
-      var gaps = reduce(seq, (memo, c) => c === '-' ? ++memo : undefined, 0);
+      var gaps = reduce(seq, function(memo, c) { return c === '-' ? ++memo: memo; }, 0);
+      
+      // Bug fixed (CZ 2018/09/26):
+      // Changed 'undefined' to 'memo'.
+      // Original:
+      // var gaps = reduce(seq, (memo, c) => c === '-' ? ++memo : undefined, 0);
+      
       // 2-place percentage , e.g. 42%
       gaps = (gaps * 100 / seq.length).toFixed(0) + "%";
-
+    
       // append gap count
       var gapSpan = document.createElement('span');
       gapSpan.textContent = gaps;

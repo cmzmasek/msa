@@ -9,7 +9,7 @@ const HelpMenu = MenuBuilder.extend({
   render: function() {
     this.setName("Help");
     this.addNode("About the project", () => {
-      return window.open("https://github.com/wilzbach/msa");
+      return window.open("https://github.com/cmzmasek/msa");
     });
     this.addNode("Report issues", () => {
       return window.open("https://github.com/wilzbach/msa/issues");

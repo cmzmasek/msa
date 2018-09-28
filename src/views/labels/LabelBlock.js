@@ -20,7 +20,7 @@ const View = boneView.extend({
 
   draw: function() {
     this.removeViews();
-    console.log("redraw columns" , this.model.length);
+    // console.log("redraw columns" , this.model.length);
     for (var i = 0; i < this.model.length; i++) {
         if (this.model.at(i).get('hidden')) { continue; }
         var view = new LabelRowView({model: this.model.at(i), g: this.g});

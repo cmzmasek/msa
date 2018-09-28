@@ -60,7 +60,7 @@ const View = boneView.extend({
         this.throttleCounts++;
         if (this.throttleCounts > 15) {
           const tTime = Math.ceil(this.throttleTime / this.throttleCounts);
-          console.log("avgDrawTime/WebKit", tTime);
+          // console.log("avgDrawTime/WebKit", tTime);
           // remove perf analyser
           return this.throttledDraw = this.draw;
         }
