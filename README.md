@@ -7,6 +7,12 @@ Demos
 http://www.phyloxml.org/demo/msaviewer_new.html
 
 
+## Download Build Deploy Use
+Documentation on how to download, build, deploy, and use is here: 
+https://docs.google.com/document/d/1wjyf3FgmXbVnqeydS86swtdONZWFNAhiCWe7MbcEtW8
+
+
+
 
 ## Use the MSAViewer
 
