@@ -114,7 +114,8 @@ _.extend(CanvasSelection.prototype, {
     const beforeWidth = this.ctx.lineWidth;
     this.ctx.lineWidth = 3;
     const beforeStyle = this.ctx.strokeStyle;
-    this.ctx.strokeStyle = "#FF0000";
+    //change the color to black
+    this.ctx.strokeStyle = "#000000";
 
     xZero += k * boxWidth;
 
@@ -147,7 +148,15 @@ _.extend(CanvasSelection.prototype, {
     // right
     this.ctx.moveTo(xZero + totalWidth,yZero);
     this.ctx.lineTo(xZero + totalWidth, boxHeight + yZero);
-
+    
+    // new code to FILL rectangle
+    this.ctx.fillStyle = "#FF0000";
+    this.ctx.globalAlpha   = 0.3;
+    this.ctx.fillRect(xZero, yZero, xPart, boxHeight);
+    this.ctx.globalAlpha   = 1;
+    
+    //end of new code
+    
     this.ctx.stroke();
     this.ctx.strokeStyle = beforeStyle;
     return this.ctx.lineWidth = beforeWidth;
