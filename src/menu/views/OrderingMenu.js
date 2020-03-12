@@ -19,9 +19,9 @@ const OrderingMenu = MenuBuilder.extend({
     return this.render();
   },
 
-  // TODO: make more generic
+ 
   render: function() {
-    this.setName("Sorting");
+    this.setName("Ordering");
     this.removeAllNodes();
 
     var comps = this.getComparators();
@@ -32,7 +32,7 @@ const OrderingMenu = MenuBuilder.extend({
 
     var el = this.buildDOM();
 
-    // TODO: make more efficient
+    
     dom.removeAllChilds(this.el);
     this.el.appendChild(el);
     return this;
@@ -83,6 +83,49 @@ const OrderingMenu = MenuBuilder.extend({
         
       });
     };
+ 
+    var setPosD = () => { //~~CZ~~
+        var saw_selected = false;
+        var i = 0;
+        this.model.each(function(sseq) {
+            if ( sseq.get("selected") ) {
+                sseq.set("pos", i + 1);
+                saw_selected = true;
+            }
+            else if (saw_selected) {
+                saw_selected = false;
+                sseq.set("pos", i - 1);
+            }
+            else {
+                sseq.set("pos", i);
+            }
+            i++;
+        });
+    };
+    
+    var setPosU = () => { //~~CZ~~
+        var i = 0;
+        var prev = null;
+        this.model.each(function(sseq) {
+            if ( sseq.get("selected") && ( prev != null ) ) { 
+                prev.set("pos", i);
+                sseq.set("pos", i - 1);
+            }
+            else {
+                sseq.set("pos", i);
+            }
+            i++;
+            prev = sseq;
+        });
+    };
+    
+    var setPosI = () => { //~~CZ~~
+        var i = 1000000;
+        this.model.each(function(sseq) {
+            sseq.set("pos", i);
+            i--;
+        });
+    };
 
     // Commented out (CZ 2018/09/26):    
     // models.push({text: "Identity " + arrowUp,comparator: ((a,b) => {
@@ -100,8 +143,26 @@ const OrderingMenu = MenuBuilder.extend({
     //   return 0;
     // }
     // ), precode: setIdent});
+  
+    //~~CZ~~
+  
+    models.push({text: "Move Selected Up", comparator: "pos", precode: setPosU});
+    
+    models.push({text: "Move Selected Down", comparator: "pos", precode: setPosD});
+  
+    models.push({text: "Move Selected to Top", comparator(seq) {
+        return !seq.get("selected");
+    }});
 
-    models.push({text: "Gaps " + arrowUp, comparator: ((a,b) => {
+    models.push({text: "Move Selected to Bottom", comparator(seq) {
+        return seq.get("selected");
+    }});
+    
+    models.push({text: "Invert Order", comparator: "pos", precode: setPosI});
+   
+    //~~CZ~~
+
+    models.push({text: "Sort by Gaps " + arrowUp, comparator: ((a,b) => {
       var val = this.gaps[a.id] - this.gaps[b.id];
       if (val > 0) { return 1; }
       if (val < 0) { return -1; }
@@ -109,7 +170,7 @@ const OrderingMenu = MenuBuilder.extend({
     }
     ), precode: setGaps});
 
-    models.push({text: "Gaps " + arrowDown, comparator: ((a,b) => {
+    models.push({text: "Sort by Gaps " + arrowDown, comparator: ((a,b) => {
       var val = this.gaps[a.id] - this.gaps[b.id];
       if (val < 0) { return 1; }
       if (val > 0) { return -1; }
@@ -117,21 +178,21 @@ const OrderingMenu = MenuBuilder.extend({
     }
     ), precode: setGaps});
     
-    models.push({text: "Label " + arrowUp, comparator: "name"});
+    models.push({text: "Sort by Label " + arrowUp, comparator: "name"});
 
-    models.push({text: "Label " + arrowDown, comparator: function(a, b) {
+    models.push({text: "Sort by Label " + arrowDown, comparator: function(a, b) {
         return - a.get("name").localeCompare(b.get("name"));
     }});
 
-    models.push({text: "Seq " + arrowUp, comparator: "seq"});
+    models.push({text: "Sort by Molecular Sequence " + arrowUp, comparator: "seq"});
 
-    models.push({text: "Seq " + arrowDown, comparator: function(a,b) {
+    models.push({text: "Sort by Molecular Sequence " + arrowDown, comparator: function(a,b) {
         return - a.get("seq").localeCompare(b.get("seq"));
     }});
 
-    models.push({text: "Consensus to top", comparator(seq) {
-        return !seq.get("ref");
-    }});
+    //models.push({text: "Consensus to Top", comparator(seq) { ~~CZ~~
+    //    return !seq.get("ref");
+    //}});
 
     return models;
   }

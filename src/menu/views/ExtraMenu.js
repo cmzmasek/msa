@@ -15,20 +15,20 @@ const ExtraMenu = MenuBuilder.extend({
     this.setName("Extras");
     var stats = this.g.stats;
     var msa = this.msa;
-    this.addNode("Add consensus seq", () => {
-      var con = stats.consensus();
-      var seq = new Seq({
-        seq: con,
-        id: "0c",
-        name: "Consenus"
-      });
-      this.model.add(seq);
-      this.model.setRef(seq);
-      this.model.comparator = function(seq) {
-        return !seq.get("ref");
-      };
-      return this.model.sort();
-    });
+  //  this.addNode("Add consensus seq", () => { ~~CZ~~
+  //    var con = stats.consensus();
+  //    var seq = new Seq({
+  //      seq: con,
+  //      id: "0c",
+  //      name: "Consenus"
+  //    });
+  //    this.model.add(seq);
+  //    this.model.setRef(seq);
+  //    this.model.comparator = function(seq) {
+  //      return !seq.get("ref");
+  //    };
+   //   return this.model.sort();
+   // });
 
 
     this.addNode("Jump to a column", () => {

@@ -83,6 +83,20 @@ const LabelView = view.extend({
 
   _onclick: function(evt) {
     var seqId = this.model.get("id");
+    //console.log( "clicked, seqId=" + seqId); //~~CZ~~
+    this.model.collection.each(function(sseq) {
+        sseq.set("selected", false);
+    });
+
+
+    if ( this.model.get("selected" ) == false) {  //~~CZ~~
+        this.model.set("selected", true);
+        //console.log(this.model.collection)
+    }
+    else {
+        this.model.set("selected", false);
+    }
+ 
     return this.g.trigger("row:click", {seqId:seqId, evt:evt});
   },
 
@@ -95,6 +109,8 @@ const LabelView = view.extend({
     var seqId = this.model.get("id");
     return this.g.trigger("row:mouseout", {seqId:seqId, evt:evt});
   }
+  
+  
 });
 
 export default LabelView;

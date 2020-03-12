@@ -9,6 +9,8 @@ const Sequence = Model.extend({
     seq: "",
     height: 1,
     ref: false, // reference: the sequence used in BLAST or the consensus seq
+    selected: false, //~~CZ~~
+    pos: 0 //~~CZ~~
   },
 
   initialize: function() {
